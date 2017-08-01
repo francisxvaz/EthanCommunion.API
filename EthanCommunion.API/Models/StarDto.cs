@@ -15,6 +15,7 @@ namespace EthanCommunion.API.Models
         public string Password { get; set; }
         public int Adults { get; set; }
         public int Children { get; set; }
+        public int Infant { get; set; }
 
         public ICollection<AddressDto> Addresses { get; set; } = new List<AddressDto>();
     }

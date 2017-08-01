@@ -2,6 +2,7 @@
 using EthanCommunion.API.Entities;
 using EthanCommunion.API.Models;
 using EthanCommunion.API.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,12 @@ namespace EthanCommunion.API.Controllers
 
 
         [HttpGet()]
+        [DisableCors]
         public IActionResult GetStars()
         {
             var stars = _starRepository.GetStars();
             var result = Mapper.Map<IEnumerable<StarDto>>(stars);
+
             return Ok(result);
         }
 

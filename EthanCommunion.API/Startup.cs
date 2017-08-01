@@ -34,6 +34,8 @@ namespace EthanCommunion.API
         {
             services.AddTransient<StarsContext>();
 
+            services.AddCors();
+
             services.AddMvc()
                     .AddMvcOptions(o => o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()));
                     //By default its camel case but if you want to change that behavior than to use the following
@@ -51,6 +53,8 @@ namespace EthanCommunion.API
             var connectionString = Startup.Configuration["ConnectionStrings:EthanCommunionDBConnection"];
             services.AddDbContext<StarsContext>(o => o.UseSqlServer(connectionString));
 
+
+
             services.AddScoped<IStarRepository, StarRepository>();
         }
 
@@ -61,6 +65,8 @@ namespace EthanCommunion.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.AllowAnyOrigin());
 
             starsContext.EnsureSeedDataForContext();
 

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26621.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EthanCommunion.API", "EthanCommunion.API\EthanCommunion.API.csproj", "{96B562A1-9371-4954-9DCE-3CA532E39787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96B562A1-9371-4954-9DCE-3CA532E39787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B562A1-9371-4954-9DCE-3CA532E39787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B562A1-9371-4954-9DCE-3CA532E39787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B562A1-9371-4954-9DCE-3CA532E39787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {393F4A44-336E-45A3-AD91-15E43C8ABE7E}
+	EndGlobalSection
+EndGlobal

@@ -26,6 +26,7 @@ namespace EthanCommunion.API
                     Adults = 4,
                     Children = 2,
                     Infant = 0,
+                    Password = GetBase64Password("Arun Dsouza"),
                     Addresses = new List<Address>()
                     {
                        new Address()
@@ -43,6 +44,12 @@ namespace EthanCommunion.API
             context.Star.AddRange(stars);
             context.SaveChanges();
 
+        }
+
+        private static string GetBase64Password(string fullName)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(fullName);
+            return System.Convert.ToBase64String(plainTextBytes);
         }
     }
 }

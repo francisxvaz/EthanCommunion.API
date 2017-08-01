@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using EthanCommunion.API.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using EthanCommunion.API.Services;
+using EthanCommunion.API.Models;
 
 namespace EthanCommunion.API
 
@@ -30,6 +32,8 @@ namespace EthanCommunion.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<StarsContext>();
+
             services.AddMvc()
                     .AddMvcOptions(o => o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()));
                     //By default its camel case but if you want to change that behavior than to use the following
@@ -47,6 +51,7 @@ namespace EthanCommunion.API
             var connectionString = Startup.Configuration["ConnectionStrings:EthanCommunionDBConnection"];
             services.AddDbContext<StarsContext>(o => o.UseSqlServer(connectionString));
 
+            services.AddScoped<IStarRepository, StarRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +63,12 @@ namespace EthanCommunion.API
             }
 
             starsContext.EnsureSeedDataForContext();
+
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Star, StarDto>();
+                cfg.CreateMap<StarDto, Star>();
+            });
 
             app.UseStatusCodePages();
 

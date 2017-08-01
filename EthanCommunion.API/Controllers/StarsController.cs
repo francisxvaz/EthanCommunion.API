@@ -67,7 +67,7 @@ namespace EthanCommunion.API.Controllers
             return Ok();
         }
 
-        [HttpPost()]
+        [HttpPost("create")]
         public IActionResult Create(StarDto star)
         {
             var result = Mapper.Map<Star>(star);

@@ -11,9 +11,10 @@ using System;
 namespace EthanCommunion.API.Migrations
 {
     [DbContext(typeof(StarsContext))]
-    partial class StarsContextModelSnapshot : ModelSnapshot
+    [Migration("20170802042203_EthanCommunionDBChangedInfants")]
+    partial class EthanCommunionDBChangedInfants
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

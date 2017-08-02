@@ -51,7 +51,8 @@ namespace EthanCommunion.API.Services
 
         public bool Save()
         {
-            return _starContext.SaveChanges() >= 0;
+            //return _starContext.SaveChanges() >= 0;
+            return true;
 
         }
     }

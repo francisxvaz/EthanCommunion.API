@@ -25,7 +25,7 @@ namespace EthanCommunion.API
                     Mobile = "0403698088",
                     Adults = 4,
                     Children = 2,
-                    Infant = 0,
+                    Infants = 0,
                     Password = GetBase64Password("Arun Dsouza"),
                     Addresses = new List<Address>()
                     {

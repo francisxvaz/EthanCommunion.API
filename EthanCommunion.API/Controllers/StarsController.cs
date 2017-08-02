@@ -34,12 +34,12 @@ namespace EthanCommunion.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetStar(int id)
         {
-            var stars = _starRepository.GetStar(id, true);
+            var stars = _starRepository.GetStar(id, false);
             var result = Mapper.Map<StarDto>(stars);
             return Ok(result);
         }
 
-        [HttpPut()]
+        [HttpPut("edit")]
         public IActionResult Edit(StarDto star, int id)
         {
             var result = Mapper.Map<Star>(star);
@@ -68,7 +68,7 @@ namespace EthanCommunion.API.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(StarDto star)
+        public IActionResult Create([FromBody]StarDto star)
         {
             var result = Mapper.Map<Star>(star);
 

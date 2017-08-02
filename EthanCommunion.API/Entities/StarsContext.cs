@@ -16,5 +16,6 @@ namespace EthanCommunion.API.Entities
 
         public DbSet<Star> Star { get; set; }
         public DbSet<Address> Address { get; set; }
+        public DbSet<Invitation> Invitation { get; set; }
     }
 }

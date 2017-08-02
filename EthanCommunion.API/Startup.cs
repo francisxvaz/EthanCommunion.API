@@ -66,7 +66,8 @@ namespace EthanCommunion.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder.AllowAnyOrigin());
+            app.UseCors(builder => builder
+                                   .AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
             starsContext.EnsureSeedDataForContext();
 

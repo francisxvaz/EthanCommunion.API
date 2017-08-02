@@ -40,10 +40,10 @@ namespace EthanCommunion.API.Controllers
         }
 
         [HttpPut("edit")]
-        public IActionResult Edit(StarDto star, int id)
+        public IActionResult Edit([FromBody]StarDto star)
         {
             var result = Mapper.Map<Star>(star);
-            _starRepository.Edit(result, id);
+            _starRepository.Edit(result);
 
             if (!_starRepository.Save())
             {

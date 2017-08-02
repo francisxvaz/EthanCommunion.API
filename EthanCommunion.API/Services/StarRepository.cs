@@ -22,9 +22,8 @@ namespace EthanCommunion.API.Services
             //_starContext.SaveChanges();
         }
 
-        public void Edit(Star star, int id)
+        public void Edit(Star star)
         {
-            star.Id = id;
             _starContext.Update<Star>(star);
         }
 
@@ -51,8 +50,8 @@ namespace EthanCommunion.API.Services
 
         public bool Save()
         {
-            //return _starContext.SaveChanges() >= 0;
-            return true;
+            return _starContext.SaveChanges() >= 0;
+            //return true;
 
         }
     }

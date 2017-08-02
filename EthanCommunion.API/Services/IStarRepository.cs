@@ -13,7 +13,7 @@ namespace EthanCommunion.API.Services
 
         Star GetStar(int starId, bool includeAddresses);
         void Create(Star star);
-        void Edit(Star star, int id);
+        void Edit(Star star);
         void Delete(Star star);
         bool Save();
 

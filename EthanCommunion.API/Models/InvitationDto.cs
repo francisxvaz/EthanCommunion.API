@@ -10,5 +10,6 @@ namespace EthanCommunion.API.Models
         public int Id { get; set; }
         public int StarId { get; set; }
         public bool Accepted { get; set; }
+        public string Token { get; set; }
     }
 }

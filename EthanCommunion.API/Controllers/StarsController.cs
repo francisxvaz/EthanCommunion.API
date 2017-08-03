@@ -86,5 +86,12 @@ namespace EthanCommunion.API.Controllers
             return Ok();
 
         }
+
+        [HttpPut("accept")]
+        public IActionResult Accept([FromBody]InvitationDto invitation)
+        {
+            _starRepository.Accept(invitation);
+            return Ok();
+        }
     }
 }

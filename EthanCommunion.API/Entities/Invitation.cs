@@ -12,7 +12,6 @@ namespace EthanCommunion.API.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
         public bool Accepted { get; set; }
 
         public int NumberOfAdultsAttending { get; set; }

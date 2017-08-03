@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EthanCommunion.API.Entities;
 using Microsoft.EntityFrameworkCore;
+using EthanCommunion.API.Models;
 
 namespace EthanCommunion.API.Services
 {
@@ -52,6 +53,22 @@ namespace EthanCommunion.API.Services
         {
             return _starContext.SaveChanges() >= 0;
             //return true;
+
+        }
+
+        public void Accept(InvitationDto invitation)
+        {
+            if (invitation == null)
+            {
+                throw new ArgumentNullException(nameof(invitation));
+            }
+
+            var star = _starContext.Star.Where(c => c.Password == invitation.Token).FirstOrDefault();
+
+            star.Accept = true;
+
+
+            _starContext.Update<Star>(star);
 
         }
     }

@@ -16,6 +16,6 @@ namespace EthanCommunion.API.Services
         void Edit(Star star);
         void Delete(Star star);
         bool Save();
-
+        void Accept(InvitationDto invitation);
     }
 }

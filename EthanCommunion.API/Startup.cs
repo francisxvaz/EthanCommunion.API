@@ -52,10 +52,10 @@ namespace EthanCommunion.API
                     ;
             var connectionString = Startup.Configuration["ConnectionStrings:EthanCommunionDBConnection"];
             services.AddDbContext<StarsContext>(o => o.UseSqlServer(connectionString));
+            services.AddSingleton<IStarsContext, StarsMongoContext>();
+            services.AddSingleton<IStarRepository, StarMongoRepository>();
 
-
-
-            services.AddScoped<IStarRepository, StarRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,8 +73,14 @@ namespace EthanCommunion.API
 
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Star, StarDto>();
+                cfg.CreateMap<Star, StarDto>()
+                     .ForMember(x => x.Id, opt => opt.Ignore());
                 cfg.CreateMap<StarDto, Star>();
+                cfg.CreateMap<Address, AddressDto>()
+                    .ForMember(x => x.Id, opt => opt.Ignore());
+                cfg.CreateMap<AddressDto, Address>()
+                    .ForMember(x => x.Star, opt => opt.Ignore());
+
             });
 
             app.UseStatusCodePages();
